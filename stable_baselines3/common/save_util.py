@@ -20,6 +20,7 @@ import torch as th
 import stable_baselines3 as sb3
 from stable_baselines3.common.type_aliases import TensorDict
 from stable_baselines3.common.utils import get_device, get_system_info
+import fickling
 
 
 def recursive_getattr(obj: Any, attr: str, *args) -> Any:
@@ -367,7 +368,7 @@ def load_from_pkl(path: Union[str, pathlib.Path, io.BufferedIOBase], verbose: in
     :param verbose: Verbosity level: 0 for no output, 1 for info messages, 2 for debug messages
     """
     file = open_path(path, "r", verbose=verbose, suffix="pkl")
-    obj = pickle.load(file)
+    obj = fickling.load(file)
     if isinstance(path, (str, pathlib.Path)):
         file.close()
     return obj
