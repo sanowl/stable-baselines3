@@ -240,7 +240,7 @@ def load_results(path: str) -> pandas.DataFrame:
     data_frames, headers = [], []
     for file_name in monitor_files:
         with open(file_name) as file_handler:
-            first_line = file_handler.readline()
+            first_line = file_handler.readline(5_000_000)
             assert first_line[0] == "#"
             header = json.loads(first_line[1:])
             data_frame = pandas.read_csv(file_handler, index_col=None)
