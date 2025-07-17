@@ -85,6 +85,8 @@ setup(
         "pandas",
         # Plotting learning curves
         "matplotlib",
+        # Plotting learning curves
+        "fickling>=0.1.3,~=0.1.0",
     ],
     extras_require={
         "tests": [
