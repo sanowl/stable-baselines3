@@ -1,7 +1,6 @@
 import glob
 import os
 import platform
-import random
 import re
 from collections import deque
 from collections.abc import Iterable
@@ -15,6 +14,7 @@ import torch as th
 from gymnasium import spaces
 
 import stable_baselines3 as sb3
+import secrets
 
 # Check if tensorboard is available for pytorch
 try:
@@ -34,7 +34,7 @@ def set_random_seed(seed: int, using_cuda: bool = False) -> None:
     :param using_cuda:
     """
     # Seed python RNG
-    random.seed(seed)
+    secrets.SystemRandom().seed(seed)
     # Seed numpy RNG
     np.random.seed(seed)
     # seed the RNG for all devices (both CPU and CUDA)
